@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //document.write escreve na tela e o br quebra a linha
+        document.write("5+4= ", 5+4, "<br/>");
+        //o sinal de mais nesse caso sera tratado como uma string e concatenará os valores
+        document.write("5+4= " + 5+4 + "<br/>");
+        //descobrir o maior e o menor valor q pode ser armazenado em uma var
+        document.write("Max value: " + Number.MAX_VALUE + "<br/>Min Value: " + Number.MIN_VALUE, "<br\>");
+        //JS tem precisão de 16 casas para numeros
+        document.write("precisão: ", 1.0000000000000005, "<br\>");
+        document.write("precisão: ", 1000.0000000000005, "<br\>");
+        document.write("precisão: ", 10002.0000000000005, "<br\>");
+        //colocando casas decimais
+        var numero = 247;
+        document.write("Pagamento em 12 meses: ", numero/12, "<br\>");
+        document.write("Com casas decimais: ", (numero/12).toFixed(2), "<br\>");
+        //incremento
+        var increvemento = 5;
+        document.write("++incremento: ", ++increvemento, "<br\>");
+        document.write(increvemento, "<br\>");
+        document.write("increvemento++: ", increvemento++, "<br\>");
+        document.write(increvemento, "<br\>");
+        //Algumas propriedades matematicas
+        document.write("Math.E: ", Math.E, "<br\>", "Math.PI: ", Math.PI, "<br\>");
+        //conversão
+        document.write("Converte para string: ", Number("3.14"), "<br\>");
+        document.write("Converte para Int: ", parseInt("3"), "<br\>");
+        document.write("Converte para float: ", parseFloat("3.14"), "<br\>");
+        //trabalhando com String
+        var randStr = "A long " + "string that " + "goes on and on";
+        document.write("String length: ",randStr.length, "<br\>");
+        document.write("Index para \"goes\": ", randStr.indexOf("goes"), "<br\>");
+        //Vai escrever ate o final do string
+        document.write("randStr.slice(19): ", randStr.slice(19), "<br\>");
+        //aqui vai o index inicial e o final
+        document.write("randStr.slice(19): ", randStr.slice(19, 23), "<br\>");
+        //aqui vc define o idex inicial e o tamanho
+        document.write("randStr.slice(19): ", randStr.substr(19, 4), "<br\>");
+        //subustituindo parte da string
+        document.write("Substitui and on por forever: ", randStr.replace("and on", "forever"), "<br\>");
+        document.write("Escreve index 2: ", randStr.charAt(2), "<br\>");
+        //separar a string
+        var randStrArray = randStr.split(" ");
+        //remove qualquer espaço vazio no inicio no inicio e no final da string
+        randStr = randStr.trim();
+        document.write(randStr.toUpperCase(), "<br\>");
+        document.write(randStr.toLowerCase(), "<br\>");
+        //alterando o estilo do string
+        var strToStyle = "Random String";
+        document.write("Grande: ",strToStyle.big(), "<br\>");
+        document.write("Pequeno: ",strToStyle.small(), "<br\>");
+        document.write("Negrito: ",strToStyle.bold(), "<br\>");
+        document.write("Italico",strToStyle.italics(), "<br\>");
+        document.write("Riscado: ",strToStyle.strike(), "<br\>");
+        document.write("Sub: ",strToStyle.sub(), "<br\>");
+        document.write("Sup: ",strToStyle.sup(), "<br\>");
+        document.write("Link para a aula: ",strToStyle.link("https://www.youtube.com/watch?v=fju9ii8YsGs"), "<br\>");
+        document.write("Cor: ",strToStyle.fontcolor("#00b0e9"), "<br\>");//pode-se usar o nome da cor tbm
+        document.write("Altera o tamanho: ",strToStyle.fontsize(50), "<br\>");
+        /*
+        Obs ao operador relacional
+        == verifica se o valor é igual
+        === verifica se o valor e o tipo são iguais
+
+        Switch case, else if e etc são iguais ao java c++
+        */
+        /* ternary conditional operator
+        condition ? expr1 : expr2 
+        */
+        var classify;
+        var input = 5;
+        if (input > 0)  
+            classify = "positivo";
+        else  
+            classify = "negativo";
+        // ?: conditional operator.  
+            classify = (input > 0) ? "positivo" : "negativo";
+        document.write("Numero ", input, " = ", classify, "<br\>");
+        //outro tipo de for alem do tradiconal
+        var customer = {name: "Bob Thomes", address: "123 Main", balance: 50.50};
+        for(k in customer){
+            document.write(customer[k], "<br\>");
+        }
+        //trabalhando com array
+        var tom = ["Tom Smith", "123 Main", 120.50];
+        document.write("1º elemento: ", tom[0], "<br\>");
+        tom[3] = "email@email.com";
+        //substituir somente o index 2. O 1 é para indicar q só o 2 sera auterado
+        tom.splice(2, 1, "Pittsburgh", "PA");
+        //deleta
+        tom.splice(4, 1);
+        document.write("Converte para string: ", tom.valueOf(), "<br\>");
+        document.write("Converte para string: ", tom.join(", "), "<br\>");
+        var numbers = [4, 3, 9, 1, 20, 43];
+        numbers.sort(function(x, y){return x - y});
+        document.write("Array: ", numbers.toString(), "<br\>");
+        //juntar 2 arrays
+        var combineArray = numbers.concat(tom);
+        //remove last item
+        tom.pop();
+        //adciona ao final
+        tom.push("555-1212", "us");
+        //adciona ao inicio
+        tom.unshift("tom");
+        /*
+        function
+        */
+        function inArray(arrayToCheck, value){
+            for (let i = 0; i < arrayToCheck.length; i++) {
+                if (arrayToCheck[i] === value) {
+                    return true;
+                }
+                
+            }
+            return false;
+        }
+        var randArray = [1, 2, 3];
+        document.write("No array: ", inArray(randArray, 6),"<br\s>");
+    </script>
+</body>
+</html>
