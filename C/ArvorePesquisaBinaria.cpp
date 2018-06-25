@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <iostream>
 #include <stdlib.h>     /* malloc, calloc, realloc, free */
 #define ZERO 0
 
@@ -27,7 +27,6 @@ arvore addNo(arvore n, int valor){
         n->esquerda = addNo(n->esquerda, valor);
     return n;
 }
-
 arvore maiorFilho(arvore t, arvore pai, int valor){
     arvore aux;
     if(t->direita == ZERO){
@@ -76,8 +75,7 @@ arvore rmNo(arvore t, int valor, arvore pai){
             rmNo(t->direita,valor,t);
     }
 }
-
-void preOrdem(struct no *p){
+void preOrdem(arvore p){
     if(p!= ZERO){
         printf("[%2d] ",p->valor);
         preOrdem(p->esquerda);
@@ -85,7 +83,7 @@ void preOrdem(struct no *p){
      }
     return;
 }
-void posOrdem(struct no *p){
+void posOrdem(arvore p){
     if(p!= ZERO){ 
         posOrdem(p->esquerda);
         posOrdem(p->direita);
@@ -93,7 +91,7 @@ void posOrdem(struct no *p){
      }
     return;
 }
-void ordemSimetrica(struct no *p){
+void ordemSimetrica(arvore p){
     if(p!= ZERO){ 
         ordemSimetrica(p->esquerda);
         printf("[%2d] ",p->valor);
