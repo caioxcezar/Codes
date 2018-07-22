@@ -1,46 +1,74 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#define INF 9999
+#include <limits.h>
+#define INF INT_MAX/2
 
 using namespace std;
 
 typedef vector<vector<int>> grid;
-
-void escreverGrade(grid grade, int tamanho){
-    for(int i=0; i<tamanho; i++){
-        for(int j=0; j<tamanho;j++)
-        if(grade[i][j] == INF)
-            cout << "∞" << " ";
-        else
-            cout << grade[i][j] << " ";
-        cout << "\n";
-    }
-}
-
-void dijkstra(grid grade, int tamanho){
-    //grid final
-    grid aux;
-    for(int i = 0; i < tamanho; i++)
-    {
-        int soma = 0;
-        //array com os nos ja inspecionados.
-        int lock[tamanho] = {-1};
-        //capturando a primeira linha para editar.
-        vector<int> linha = grade[i];
-        for(int j = 0; j < tamanho; j++){
-
+//busca a menor vertice para locomoção
+int menorVertice(grid grade, int tamanho, int index){
+    int aux = INF, vertice;
+    for(int i = 0;i < tamanho;i++)
+        if(aux > grade[index][i] && index != i){
+            aux = grade[index][i];
+            vertice = i;
         }
+    return vertice;
+}
+//escreve vetor
+void printLine(vector<int> x,int tamanho){
+    for(int i = 0; i < tamanho; i++)
+        x[i] == INF ? cout << "∞ " : cout << x[i] << " ";
+    cout << endl;
+}
+//o algoritimo
+void dijkstra(grid grade, int tamanho){
+    //for para fazer o menor caminho de todos os nós
+    for(int x = 0;x<tamanho;x++){
+        //vetor que armazena o menor caminho de um nó
+        //com valor infinito inicialmente
+        vector<int> linha;
+        for(int i = 0; i < tamanho; i++)
+            linha.push_back(INF);
+        //vetor que armazena os nos ja acessados
+        //todos como falso inicialmente
+        vector<bool> checked;
+        for(int i = 0; i < tamanho; i++)
+            checked.push_back(false);
+        //soma das distancias ja percoridas
+        int soma = 0;
+        //index da proxima vertice a se percorrer
+        int prox;
+        //for vai comecar no nó x e só vai parar quando chegar em um nó ja inspecionado
+        //o 'i' assume valor da proxima vertice a ser percorrida
+        for(int i = x; !checked[i]; i=prox){
+            //percorrer as vertices do nó atual verificando se encotra um valor menor
+            for(int j = 0; j < tamanho; j++){
+                if(i == j)
+                    linha[j] = soma + 0;
+                if(soma + grade[i][j] < linha[j])
+                    linha[j] = grade[i][j] + soma;
+            }
+            //terminado de verificar toda a linha, marca como já inspecionada
+            checked[i] = true;
+            //descobre qual é a proxima vertice a se percorrer
+            prox = menorVertice(grade, tamanho, i);
+            //soma o valor da proxima vertice no percurso
+            soma += grade[i][prox];
+        }
+        //imprime o nó ja inspecionado
+        printLine(linha, tamanho);
     }
-    escreverGrade(grade, tamanho);
-    
 }
 
 int main(){
+    grid grade;
     int tamanho, valor;
+
     cout << "Algoritimo de dijkstra\n\nDigitem a quantidade de lugares: ";
     cin >> tamanho;
-    grid grade;
     for(int i=0; i<tamanho; i++){
         vector<int> linha;
         cout << "local " << i+1 << "\n";
@@ -56,7 +84,7 @@ int main(){
         grade.push_back(linha);
         cout << endl;
     }
-    escreverGrade(grade, tamanho);
-    //dijkstra(grade, tamanho);
+
+    dijkstra(grade, tamanho);
     return 0;
 }
