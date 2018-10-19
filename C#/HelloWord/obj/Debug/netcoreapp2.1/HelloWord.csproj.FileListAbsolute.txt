@@ -1,0 +1,11 @@
+/home/caioc/Documents/Codes/C#/HelloWord/bin/Debug/netcoreapp2.1/HelloWord.deps.json
+/home/caioc/Documents/Codes/C#/HelloWord/bin/Debug/netcoreapp2.1/HelloWord.runtimeconfig.json
+/home/caioc/Documents/Codes/C#/HelloWord/bin/Debug/netcoreapp2.1/HelloWord.runtimeconfig.dev.json
+/home/caioc/Documents/Codes/C#/HelloWord/bin/Debug/netcoreapp2.1/HelloWord.dll
+/home/caioc/Documents/Codes/C#/HelloWord/bin/Debug/netcoreapp2.1/HelloWord.pdb
+/home/caioc/Documents/Codes/C#/HelloWord/obj/Debug/netcoreapp2.1/HelloWord.csprojAssemblyReference.cache
+/home/caioc/Documents/Codes/C#/HelloWord/obj/Debug/netcoreapp2.1/HelloWord.csproj.CoreCompileInputs.cache
+/home/caioc/Documents/Codes/C#/HelloWord/obj/Debug/netcoreapp2.1/HelloWord.AssemblyInfoInputs.cache
+/home/caioc/Documents/Codes/C#/HelloWord/obj/Debug/netcoreapp2.1/HelloWord.AssemblyInfo.cs
+/home/caioc/Documents/Codes/C#/HelloWord/obj/Debug/netcoreapp2.1/HelloWord.dll
+/home/caioc/Documents/Codes/C#/HelloWord/obj/Debug/netcoreapp2.1/HelloWord.pdb
