@@ -3,6 +3,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.io.*;
 import java.lang.String;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.net.URL;
+
 class Criptator{
       public static void main(String[] args) {
         JFrame frame = new JFrame("Encriptator 2000");
@@ -122,6 +127,15 @@ class Criptator{
         topPanel.add(lerButton);
         topPanel.add(encriptarButton);
         topPanel.add(desencriptarButton);
+
+        try {
+            URL resource = frame.getClass().getResource("/icone.png");
+            BufferedImage image = ImageIO.read(resource);
+            frame.setIconImage(image);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         frame.getContentPane().add(BorderLayout.SOUTH, painel);
         frame.getContentPane().add(BorderLayout.CENTER, painel2);
