@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/JavaScript/Conway's Game of Life/Index.css">
+    <title>Conway's Game of Life</title>
+</head>
+<style>
+    body {
+        text-align: center
+    }
+    input {
+        width: 250px;
+    }
+    #campo {
+        display: inline-block;
+    }
+</style>
+
+<body>
+    <p>
+        Array</br><input type="text" id="array" name="array" value="1,0,0|0,1,1|1,1,0"></br>
+        Gerações</br><input type="text" id="geracoes" /></br>
+        <button onclick="mostrarAvanco(array.value,geracoes.value)">Calcular</button>
+    </p>
+
+    <div id="campo"></div>
+    <script src="Script.js"></script>
+</body>
+
+</html>
